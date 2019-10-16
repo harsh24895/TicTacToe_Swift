@@ -10,6 +10,11 @@ import UIKit
 
 class Harshkumar_TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var winLossImage: UIImageView!
+    
+    
+    @IBOutlet weak var whoWonLabel: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

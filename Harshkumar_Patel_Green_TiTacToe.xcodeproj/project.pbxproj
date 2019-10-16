@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8819923F23579FBB0073B679 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8819923E23579FBB0073B679 /* Constants.swift */; };
 		88E79717233BFB2C00E9E73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E79716233BFB2C00E9E73A /* AppDelegate.swift */; };
 		88E79719233BFB2C00E9E73A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E79718233BFB2C00E9E73A /* SceneDelegate.swift */; };
 		88E7971B233BFB2C00E9E73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E7971A233BFB2C00E9E73A /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8819923E23579FBB0073B679 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88E79713233BFB2C00E9E73A /* Harshkumar_Patel_Green_TiTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harshkumar_Patel_Green_TiTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E79716233BFB2C00E9E73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88E79718233BFB2C00E9E73A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				88E79724233BFB2D00E9E73A /* Info.plist */,
 				88E7972A233C077200E9E73A /* Harshkumar_TableTableViewController.swift */,
 				88E7972C233C093100E9E73A /* Harshkumar_TableViewCell.swift */,
+				8819923E23579FBB0073B679 /* Constants.swift */,
 			);
 			path = Harshkumar_Patel_Green_TiTacToe;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				88E7971B233BFB2C00E9E73A /* ViewController.swift in Sources */,
 				88E79717233BFB2C00E9E73A /* AppDelegate.swift in Sources */,
 				88E79719233BFB2C00E9E73A /* SceneDelegate.swift in Sources */,
+				8819923F23579FBB0073B679 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

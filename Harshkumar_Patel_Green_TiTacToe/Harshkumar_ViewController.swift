@@ -11,6 +11,7 @@ import UIKit
 class Harshkumar_ViewController: UIViewController {
     
     var gamemodel = Harshkumar_GameModel()
+    var gameFinished = false
     
     //its mark for outlet
     @IBOutlet weak var gameStatelabel: UILabel!
@@ -18,7 +19,7 @@ class Harshkumar_ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            gameStatelabel.text = gamemodel.whoseTurn + "Turn"
+//            gameStatelabel.text = gamemodel.whoseTurn + "Turn"
         // Do any additional setup after loading the view.
     }
     
@@ -26,7 +27,7 @@ class Harshkumar_ViewController: UIViewController {
     @IBAction func squareTouched(_ sender: UIButton) {
         print("Touched")
         print(sender.tag)
-        if(sender.currentTitle == "X"||sender.currentTitle == "O"){
+        if(sender.currentTitle == "X" || sender.currentTitle == "O" || gameFinished){
             
         }else{
             sender.setTitle(gamemodel.whoseTurn, for: .normal)
@@ -36,8 +37,14 @@ class Harshkumar_ViewController: UIViewController {
             
             if(gameFinished){
                 let whoWon = gamemodel.whoWon
+                if(whoWon == ""){
+                    gameStatelabel.text="Draw!!!"
+                }else{
                 gameStatelabel.text = whoWon + "Won"
-                print(whoWon)
+                }
+                
+                
+            
             }else{
                 gameStatelabel.text = gamemodel.whoseTurn + "'sTurn"
             }
@@ -45,14 +52,6 @@ class Harshkumar_ViewController: UIViewController {
 
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
