@@ -15,6 +15,7 @@ class Harshkumar_GameModel{
     var whoWon = ""
     var numberOfMovesplayed = 0
     var squareContents = Array(repeating: "", count: 10)
+    var isPastGame = false
     
     var orderofMOves = [Int]()
     let winnigCombination=[
@@ -46,6 +47,8 @@ class Harshkumar_GameModel{
         if(numberOfMovesplayed < 5){
             return false
         }
+        
+        
         for winningCombo in winnigCombination{
             let index1 = winningCombo[0]
             let index2 = winningCombo[1]
@@ -66,6 +69,10 @@ class Harshkumar_GameModel{
         return false
     }
     func saveGame (){
+        
+        if(isPastGame){
+            return
+        }
         var numberOfGamesPlayed = UserDefaults.standard.integer(forKey: Constants.NUM_GAMES)
         
         numberOfGamesPlayed += 1

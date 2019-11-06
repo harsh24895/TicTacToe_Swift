@@ -15,6 +15,9 @@ class Harshkumar_TableViewCell: UITableViewCell {
     
     @IBOutlet weak var whoWonLabel: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
+    
+    var gameData : GameData?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

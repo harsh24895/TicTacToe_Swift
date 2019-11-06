@@ -14,6 +14,7 @@ class Harshkumar_TableTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -21,12 +22,20 @@ class Harshkumar_TableTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadData()
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
     func loadData(){
+        
+        gameDataArray = [GameData]()
         let numberOfGamesPlayed = UserDefaults.standard.integer(forKey: Constants.NUM_GAMES)
         
-        for i in (0..<numberOfGamesPlayed){
+        for i in (0..<numberOfGamesPlayed).reversed(){
             let whoWon = UserDefaults.standard.string(forKey: Constants.WHO_WIN + String(i + 1))
             let dateTime = UserDefaults.standard.object(forKey: Constants.DATE_TIME + String(i + 1)) as! Date
             let orderOfMoves = UserDefaults.standard.array(forKey: Constants.ORDER_OF_MOVES + String (i + 1)) as! [Int]
@@ -48,10 +57,34 @@ class Harshkumar_TableTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "harshkumar_tablecell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "harshkumar_tablecell", for: indexPath) as! Harshkumar_TableViewCell
 
         // Configure the cell...
-
+        
+        let i = indexPath.row
+        let gameData = gameDataArray[i]
+        
+        if(gameData.whoWon == ""){
+            cell.whoWonLabel.text = "Draw!!!"
+        }else{
+            cell.whoWonLabel.text = gameData.whoWon + "Won!!!"
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
+        let formatedDate = dateFormatter.string(from: gameData.dateTime)
+        cell.dateTimeLabel.text = formatedDate
+        
+        
+        // set the image
+        
+        if (gameData.whoWon == "X"){
+            cell.winLossImage.image = UIImage(named: "green_win")
+        }else {
+            cell.winLossImage.image = UIImage(named: "green_loss")
+        }
+        cell.gameData = gameData
         return cell
     }
     
@@ -91,15 +124,28 @@ class Harshkumar_TableTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let identifier = segue.identifier
+        
+        if (identifier == "newGame"){
+            return
+        }
+        
+        let whichCell = sender as! Harshkumar_TableViewCell
+        let destinationView = segue.destination as! Harshkumar_ViewController
+        
+        destinationView.replayPastGame = true
+        destinationView.pastGamedata = whichCell.gameData
+        
+        
     }
-    */
+
 
 }
 

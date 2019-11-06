@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +69,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date &amp; time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMK-oh-TgX">
-                                            <rect key="frame" x="304" y="32" width="90" height="21"/>
+                                            <rect key="frame" x="209" y="39" width="185" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -81,6 +81,7 @@
                                     <outlet property="dateTimeLabel" destination="EMK-oh-TgX" id="lpj-Mc-52P"/>
                                     <outlet property="whoWonLabel" destination="H4k-kX-jEh" id="kaO-mb-A0h"/>
                                     <outlet property="winLossImage" destination="LP7-ra-scy" id="2XK-MZ-hO9"/>
+                                    <segue destination="d0t-rn-czn" kind="show" identifier="pastGame" id="Ogi-ug-weK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -93,7 +94,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Xmz-9N-hm9"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="urm-SM-xCc">
                             <connections>
-                                <segue destination="d0t-rn-czn" kind="show" id="4Fs-uf-uZu"/>
+                                <segue destination="d0t-rn-czn" kind="show" identifier="newGame" id="4Fs-uf-uZu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -256,4 +257,7 @@
     <resources>
         <image name="green_grid" width="320" height="320"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ogi-ug-weK"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,8 @@ class Harshkumar_ViewController: UIViewController {
     
     var gamemodel = Harshkumar_GameModel()
     var gameFinished = false
+    var replayPastGame = false
+    var pastGamedata : GameData?
     
     //its mark for outlet
     @IBOutlet weak var gameStatelabel: UILabel!
@@ -21,6 +23,27 @@ class Harshkumar_ViewController: UIViewController {
         super.viewDidLoad()
 //            gameStatelabel.text = gamemodel.whoseTurn + "Turn"
         // Do any additional setup after loading the view.
+        
+        if(replayPastGame){
+            gamemodel.isPastGame = true
+            navigationItem.title = "Past Game"
+        
+        let pastGameMoves = (pastGamedata?.orderOfMoves)!
+        
+            var delay : Double = Double(0)
+        
+            for i in pastGameMoves{
+                delay = delay + 1.0
+            
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+                    let button = self.view.viewWithTag(i)
+                    self.squareTouched(button as! UIButton)
+
+                })
+            }
+    } else{
+            
+        }
     }
     
 
@@ -33,7 +56,7 @@ class Harshkumar_ViewController: UIViewController {
             sender.setTitle(gamemodel.whoseTurn, for: .normal)
             gamemodel.playMove(tag: sender.tag)
             //check if the game is finished
-            let gameFinished = gamemodel.isGamefinished()
+            gameFinished = gamemodel.isGamefinished()
             
             if(gameFinished){
                 let whoWon = gamemodel.whoWon
